@@ -25,6 +25,8 @@
     - php
     - lua
     - luarocks
+    - tree-sitter-cli
+    - rust
 
 - name: Install Extra Packages
   become: false
@@ -39,6 +41,12 @@
   register: timezone_register
   changed_when: false
   check_mode: false
+
+- name: Copy Terminfo
+  ansible.builtin.copy:
+    src: "{{ role_path }}/files/xterm-ghostty.src"
+    dest: /tmp/xterm-ghostty.src
+    mode: "0777"
 
 - name: Compile Terminfo
   become: true
