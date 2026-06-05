@@ -14,7 +14,7 @@
       when: ansible_facts['os_family'] == 'Debian'
 
     - name: Pacman Dependencies
-      ansible.builtin.pacman:
+      community.general.pacman:
         name:
           - openssh
           - openssh
@@ -30,27 +30,6 @@
         name:
           - openssh
       when: ansible_facts['os_family'] == 'Darwin'
-
-    - name: Create nfs group
-      ansible.builtin.group:
-        system: true
-        name: nfs-user
-
-    - name: Create nfs user
-      ansible.builtin.user:
-        system: true
-        hidden: true
-        createhome: false
-        shell: /bin/false
-        umask: "007"
-        name: nfs-user
-        group: nfs-user
-      when: nfs_exports is defined or nfs_imports is defined
-
-    - name: Create ssh user group
-      ansible.builtin.group:
-        system: true
-        name: ssh-user
 
     - name: Setup users
       ansible.builtin.user:
