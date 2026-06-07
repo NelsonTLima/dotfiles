@@ -145,3 +145,5 @@ all:
         - name: nelson
           home: /home/nelson
           generate_ssh_key: false
+          groups: ["ssh-groups"]
+          append: true

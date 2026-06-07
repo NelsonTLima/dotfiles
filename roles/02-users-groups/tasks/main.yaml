@@ -33,6 +33,10 @@
           - openssh
       when: ansible_facts['os_family'] == 'Darwin'
 
+    - name: create ssh-user group
+      ansible.builtin.group:
+        name: ssh-user
+        state: present
 
     - name: Setup users
       ansible.builtin.user:
