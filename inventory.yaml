@@ -100,7 +100,7 @@ all:
       nfs_imports:
         - { from: "truenas.server:/mnt/pool-1/media", to: "/User/nelson/movies-nfs" }
         - { from: "truenas.server:/mnt/pool-1/data", to: "/User/nelson/shared-nfs" }
-        - { from: "truenas.server:/mnt/pool-1archive", to: "/User/nelson/archive-nfs" }
+        - { from: "truenas.server:/mnt/pool-1/archive", to: "/User/nelson/archive-nfs" }
 
       users:
         - name: root
