@@ -82,7 +82,7 @@
     - name: Add line to fstab
       ansible.builtin.lineinfile:
         path: "/etc/fstab"
-        line: "{{ import.from }} {{ import.to }} nfs rw, nfsvers=4,resvport 0 0"
+        line: "{{ import.from }} {{ import.to }} nfs rw,nfsvers=4,_netdev,nofail,resvport 0 0"
       when: nfs_imports
       loop: "{{ nfs_imports }}"
       loop_control:

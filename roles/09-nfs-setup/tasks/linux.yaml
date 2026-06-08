@@ -114,7 +114,7 @@
         path: "{{ import.to }}"
         src: "{{ import.from }}"
         fstype: "nfs"
-        opts: "defaults"
+        opts: "rw,nfsvers=4,_netdev,nofail,x-systemd.automount"
         state: mounted
       loop: "{{ nfs_imports }}"
       loop_control:
